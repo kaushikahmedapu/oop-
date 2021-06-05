@@ -1,0 +1,11 @@
+﻿
+Key Features in Python :
+    • Easy to code
+    • Free and Open Source
+    • Object-Oriented Language
+    • GUI Programming Support
+    • High-Level Language
+    • Extensible feature
+    • Python is Portable language
+    • Python is Integrated language
+
