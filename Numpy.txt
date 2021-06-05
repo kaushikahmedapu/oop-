@@ -1,0 +1,15 @@
+﻿numpy.array.argsort() returns the indices which would sort numpy.array in ascending order. Call (-arr).argsort() to get an array of all the indices of arr sorted in descending order by the corresponding elements of arr. Slice the resulting array using [:N] to find the N maximum indices.
+
+
+numbers = np.array([1, 3, 2, 4])
+n = 2
+
+idx = np.argpartition(numbers, -n)[-n:]
+indices = idx[np.argsort((-numbers)[idx])]
+
+print(indices)
+Output
+
+Output
+3 1
+
