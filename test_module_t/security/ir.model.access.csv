@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_test_req_requisition,access_test_req_requisition,test_module_t.model_test_requisition,test_module_t.group_requisition_employee,1,1,1,0
+
+
+access_test_hr_req_requisition,access_test_hr_req_requisition,test_module_t.model_test_requisition,test_module_t.group_requisition_hr,1,1,1,1
+
+
+access_test_hr_super_req_requisition,access_test_hr_super_req_requisition,test_module_t.model_test_requisition,test_module_t.group_requisition_hr_super,1,1,1,1
