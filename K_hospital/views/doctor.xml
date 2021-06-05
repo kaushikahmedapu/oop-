@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+<record id="view_doctor_addon_tree" model="ir.ui.view">
+    <field name="name">doctor.addon.form</field>
+    <field name="model">doctor.addon</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="id_card"/>
+            <field name="ward_num"/>
+            <field name="doctor_address"/>
+            <field name="age"/>
+            <field name="date_of_birth"/>
+       </tree>
+    </field>
+</record>
+
+ <record id="view_doctor_addon_form" model="ir.ui.view">
+    <field name="name">doctor.addon.form</field>
+    <field name="model">doctor.addon</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                   <group>
+                        <group>
+                           
+                            <!-- <field name="fname"/>
+                            <field name="lname"/> -->
+                            <field name="name"/>
+                            <field name="id_card"/>
+                            <field name="ward_num"/>
+                            <field name="doctor_address"/>
+                            <field name="doctor_photo" widget="image" class="oe_avatar"/>
+                
+                        </group>
+
+                        <group>
+                                <field name="date_of_birth"/>
+                                <field name="age"/>
+                                <field name="today_deauty_id"/>
+                                <!-- <field name=" diseases_depts"/> -->
+                        </group>
+
+                   </group>
+             </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="action_doctor_addon" model="ir.actions.act_window">
+        <field name="name">Doctor Addon</field>
+        <field name="res_model">doctor.addon</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+<!-- <menuitem id="menu_hospital_addon" name="KAUSHIK HOSPITAL"/> -->
+
+<menuitem 
+    id="hospital_doctor_menu" 
+    name="Doctor"
+    action="action_doctor_addon"
+    parent="menu_hospital_addon"/>
+
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="doctor_report_print" model="ir.actions.report">
+        <field name="name">Print Report</field>
+        <field name="model">doctor.addon</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">K_hospital.doctor_report_print_document</field>
+        <field name="report_file">K_hospital.doctor_report_print_document</field>
+        <field name="binding_model_id" ref="model_doctor_addon"/>
+        <field name="binding_type">report</field>
+        
+    </record>
+
+    <template id="doctor_report_print_document">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach='docs' t-as="doc">
+                        <div class="text-center">
+                            <h1>Under Doctor Name:- <t t-esc="doc.name" /> </h1>
+                         </div>
+                        <div class="offset-md-2 col-md-8 offset-md-2" style="margin-top:60px;">
+                            <table class="table">
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Nurse Name</th>
+                                    <th>Nurse Age</th>                                
+                                </tr>
+                                <t t-set="sn" t-value="1"/>
+                                <t t-foreach="doc.today_deauty_id" t-as="deauty_id">
+                                    <t t-if="deauty_id.age > 45">
+                                        <tr>
+                                            <td> <t t-esc="sn"/> </td>
+                                            <td> <t t-esc="deauty_id.name"/> </td>
+                                            <td> <t t-esc="deauty_id.age"/> </td>
+                                        </tr>
+                                    </t>
+
+                                        <t t-set="sn" t-value="sn + 1"/>
+                                </t>
+
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

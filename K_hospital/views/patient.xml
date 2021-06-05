@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+<record id="view_patient_addon_tree" model="ir.ui.view">
+    <field name="name">patient.addon.form</field>
+    <field name="model">patient.addon</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="bill"/>
+            <field name="discount"/>
+            <field name="total"/>
+            <field name="name"/>
+            <field name="serial_number"/>
+            <!-- <field name="ward_num"/> -->
+            <field name="patient_address"/>
+            <field name="age"/>
+            <field name="date_of_birth"/>
+       </tree>
+    </field>
+</record>
+
+ <record id="view_patient_addon_form" model="ir.ui.view">
+    <field name="name">patient.addon.form</field>
+    <field name="model">patient.addon</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="bill"/>
+                        <field name="discount"/>
+                        <field name="total"/>
+                        <field name="serial_number"/>
+                        <!-- <field name="ward_num"/> -->
+                        <field name="code"/>
+                        <field name="patient_address"/>
+                        <field name="patient_photo" widget="image" class="oe_avatar"/>
+                    </group>
+
+                    <group>
+                        <field name="date_of_birth"/>
+                        <field name="age"/>
+                        <field name="disease_depts_ids" widget = "many2many_tags"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="action_patient_addon" model="ir.actions.act_window">
+        <field name="name">Patient Addon</field>
+        <field name="res_model">patient.addon</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_hospital_addon" name="KAUSHIK HOSPITAL"/>
+
+<menuitem 
+        id="hospital_patient_menu" 
+        name="Patient"
+        action="action_patient_addon"
+        parent="menu_hospital_addon"/>
+
+
+</odoo>

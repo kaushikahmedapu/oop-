@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+<record id="view_wardboy_addon_tree" model="ir.ui.view">
+    <field name="name">wardboy.addon.form</field>
+    <field name="model">wardboy.addon</field>
+    <field name="arch" type="xml">
+        <tree>
+            <!-- <field name="fname"/>
+            <field name="lname"/> -->
+            <field name="name"/>
+            <field name="id_card"/>
+            <!-- <field name="ward_num"/> -->
+            <field name="ward_num"/>
+            <field name="ward_boy_address"/>
+            <field name="age"/>
+            <field name="date_of_birth"/>
+       </tree>
+    </field>
+</record>
+ <record id="view_wardboy_addon_form" model="ir.ui.view">
+    <field name="name">wardboy.addon.form</field>
+    <field name="model">wardboy.addon</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                   <group>
+                        <group>
+                            <field name="ward_boy_photo" widget="image" class="oe_avatar"/>
+                            <!-- <field name="fname"/>
+                            <field name="lname"/> -->
+                            <field name="name"/>
+
+                            <field name="id_card"/>
+                            <field name="ward_num"/>
+                            <field name="ward_boy_address"/>
+                
+                        </group>
+
+                        <group>
+                                <field name="date_of_birth"/>
+                                <field name="age"/>
+                        </group>
+
+                   </group>
+             </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="action_wardboy_addon" model="ir.actions.act_window">
+        <field name="name">Wardboy Addon</field>
+        <field name="res_model">wardboy.addon</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+<!-- <menuitem id="menu_hospital_addon" name="KAUSHIK HOSPITAL"/> -->
+
+<menuitem 
+        id="hospital_wardboy_menu" 
+        name="Ward Boy"
+        action="action_wardboy_addon"
+        parent="menu_hospital_addon"/>
+
+
+</odoo>

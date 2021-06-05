@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+<record id="view_nurse_addon_tree" model="ir.ui.view">
+    <field name="name">nurse.addon.form</field>
+    <field name="model">nurse.addon</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="id_card"/>
+            <field name="ward_num"/>
+            <field name="nurse_address"/>
+            <field name="age"/>
+            <field name="date_of_birth"/>
+       </tree>
+    </field>
+</record>
+
+ <record id="view_nurse_addon_form" model="ir.ui.view">
+    <field name="name">nurse.addon.form</field>
+    <field name="model">nurse.addon</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                   <group>
+                        <group>
+                           
+                            <!-- <field name="fname"/>
+                            <field name="lname"/> -->
+                            <field name="name"/>
+
+                            <field name="id_card"/>
+                            <field name="ward_num"/>
+                            <field name="nurse_address"/>
+                            <field name="deauty_under_ids"/>
+                
+                        </group>
+
+                        <group>
+                                <field name="date_of_birth"/>
+                                <field name="age"/>
+                                <field name="nurse_photo" widget="image" class="oe_avatar"/>
+                        </group>
+
+                   </group>
+             </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="action_nurse_addon" model="ir.actions.act_window">
+        <field name="name">Nurse Addon</field>
+        <field name="res_model">nurse.addon</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+<!-- <menuitem id="menu_hospital_addon" name="KAUSHIK HOSPITAL"/> -->
+
+<menuitem 
+        id="hospital_nurse_menu" 
+        name="Nurse"
+        action="action_nurse_addon"
+        parent="menu_hospital_addon"/>
+
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="action_product_addon" model="ir.actions.act_window">
+        <field name="name">Product Info</field>
+        <field name="res_model">product.addon</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_product_owner"
+            action="action_product_addon"
+            name="Product Info"
+            parent="menu_hospital_addon"/>
+
+    <record id="action_product_addon_submenu" model="ir.actions.act_window">
+        <field name="name">Product Info</field>
+        <field name="res_model">product.addon</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_product_owner_submenu"
+            action="action_product_addon_submenu"
+            name="Product Info"
+            parent="sale.menu_sale_config"
+            sequence='101'
+            />
+
+</odoo>
