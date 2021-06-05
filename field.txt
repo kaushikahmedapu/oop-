@@ -1,0 +1,66 @@
+﻿Odoo supports several fields for better data handling with specific options for each type. The fields can be categorized into 3 types:
+
+1. Simple Types
+
+2. Relation Types
+
+3. Functional Types
+
+Simple Types are Integer, Char, String, etc. Relation Types represent the relations between objects like Many2one, One2many, and Many2many. Functional fields are not stored in the database. They are special fields because the fields are calculated in real-time based on other fields of the view.
+
+IN search field , we use filter tag like this:
+
+<record id="view_test_addon_search" model="ir.ui.view">
+<field name="name">test.addon.search</field>
+<field name="model">test.addon</field>
+<field name="arch" type="xml">
+<search>
+<!-- adding filter -->
+<filter string = "Under Age" name ='testunderage' domain="[('age','&lt;',35)]"/>
+<separator/>
+<filter string = "Eligble" name ='testeligble' domain="[('age','&gt;',35)]"/>
+<!-- group by -->
+<filter string = "MENTOR" name ='groupbymentor' context="{'group_by':'mentor'}"/>
+</search>
+</field>
+</record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+In security folder , we create the groups following this step :
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="k_hospital_employee" model="ir.module.category">
+<field name="name"> K HOSPITAL DOC</field>
+<field name="sequence">10</field>
+</record>
+
+<record id="group_hospital_general" model="res.groups">
+<field name="name">General Employee K</field>
+<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+<field name="category_id" ref="k_hospital_employee"/>
+<field name="users" eval="[(4, ref('base.user_admin'))]"/>
+</record>
+
+<record id="group_hospital_manager" model="res.groups">
+<field name="name">Manager Employee K</field>
+<field name="category_id" ref="k_hospital_employee"/>
+<field name="implied_ids" eval="[(4, ref('group_hospital_general'))]"/>
+<field name="users" eval="[(4, ref('base.user_admin'))]"/>
+</record>
+
+</odoo>
+
