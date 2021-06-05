@@ -1,0 +1,8 @@
+﻿wizard is a model that display a form view to the user usually in a dialog window, with some fields to be filled in, unlike other models wizards are declared using models.TransietModel and data used in wizard it’s expected to be useful in only until wizard is completed or canceled.
+The class TransientModel extends Model and reuse all its existing mechanisms, with the following particularities :
+    • Wizard records are not meant to be persistent; they are automatically deleted from the database after a certain time. This is why they are called transient. 
+      
+    • Wizard models do not require explicit access rights: users have all permissions on wizard records. 
+      
+    • Wizard records may refer to regular records or wizard records through many2one fields, but regular records cannot refer to wizard records through a many2one field. 
+
