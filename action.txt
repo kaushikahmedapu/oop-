@@ -1,0 +1,23 @@
+﻿Actions refer to the behavior of the system in response to user actions. Different types of actions in odoo are,
+1. Server Actions
+2. Client Actions
+3. Window Actions
+4. URL Actions
+5. Report Actions
+6. Automated Actions
+
+Server Actions (ir.actions.server)
+Ir.actions.server represents the server actions model. Server action works on a base model and offers various types of actions that can be executed automatically.
+
+Client Actions (ir.actions.client)
+Ir.actions.client represents the client action model. Client actions basically trigger the actions implemented by the client. These are basically menu-items defined in XML and the corresponding actions are mapped to a widget.
+
+URL Actions (ir.actions.act_url)
+Ir.actions.act_url represents the url action model.These type of actions allows to open a URL (website/web page) via an Odoo action.Window actions (ir.actions.act_window) are the most common action types. It is used to present the visualization of the data models through different types of views.
+
+Report actions (ir.actions.report) are the actions which trigger the printing actions of a report. By using different fields one can represent the type, name, paper format, etc of the report.Field ‘report_type’ represents the type of the report whether it is a PDF report (qweb-pdf) or HTML report (qweb-html).
+
+Automated Actions (ir.cron) refers to the action that triggered automatically on a predefined time interval.
+
+
+
