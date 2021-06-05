@@ -1,0 +1,29 @@
+﻿Security in Odoo
+Aside from manually managing access using custom code, Odoo provides two main data-driven mechanisms to manage or restrict access to data.
+Both mechanisms are linked to specific users through groups: a user belongs to any number of groups, and security mechanisms are associated to groups, thus applying security mechanisms to users.
+class res.groups 
+name 
+serves as user-readable identification for the group (spells out the role / purpose of the group)
+category_id 
+The module category, serves to associate groups with an Odoo App (~a set of related business models) and convert them into an exclusive selection in the user form.
+implied_ids 
+Other groups to set on the user alongside this one. This is a convenience pseudo-inheritance relationship: it’s possible to explicitly remove implied groups from a user without removing the implier.
+comment 
+Additional notes on the group e.g.
+Access Rights
+Grants access to an entire model for a given set of operations. If no access rights matches an operation on a model for a user (through their group), the user doesn’t have access.
+Access rights are additive, a user’s accesses are the union of the accesses they get through all their groups e.g. given a user who is part of group A granting read and create access and a group B granting update access, the user will have all three of create, read, and update.
+class ir.model.access 
+name 
+The purpose or role of the group.
+model_id 
+The model whose access the ACL controls.
+
+group_id 
+The res.group to which the accesses are granted, an empty group_id means the ACL is granted to every user
+The perm_method attributes grant the corresponding CRUD access when set, they are all unset by default.
+perm_create 
+perm_read 
+perm_write 
+perm_unlink
+
